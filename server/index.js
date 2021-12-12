@@ -27,17 +27,8 @@ const database = mysql.createConnection({
 const usersRouter = require("./routes/Users");
 app.use("/auth", usersRouter);
 
-const sleepEventRouter = require("./routes/SleepEvents");
-app.use("/sleepEvents", sleepEventRouter);
-
-const calendarRouter = require("./routes/Calendar");
-app.use("/calendar", calendarRouter);
-
-// const moodRouter = require("./routes/Moods");
-// app.use("/moods", moodRouter);
-
-// const eventsRouter = require("./routes/Events");
-// app.use("/events", eventsRouter);
+const commentsRouter = require("./routes/Comments");
+app.use("/Comments", commentsRouter);
 
 
 app.post("/register", (req, res) => {
