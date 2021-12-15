@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
             email: email,
             password: hash, 
         })
-        res.json(password);
+        res.json("SUCESSO");
     });
 });
 
@@ -40,8 +40,10 @@ router.post("/login", async (req, res) => {
         if (!match) res.json({ error: "Senha incorreta" });
 
         //AUTENTICAÇÃO JWT
-        const accessToken = sign(
-            { username: user.username, id: user.id },
+        const accessToken = sign({ 
+            username: user.username, 
+            id: user.id 
+        },
             'importantsecret'
         );
         res.json({

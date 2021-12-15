@@ -4,11 +4,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        comment: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        start: {
+            type: DataTypes.DATE(6),
+            allowNull: false
         }
-    })
+    }) 
 
     return Comments;
 }
