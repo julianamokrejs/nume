@@ -22,6 +22,20 @@ router.post("/", async (req, res) => {
     }
 })
 
+router.put('/update', async (req, res) => {
+    const id = req.body.id;
+    const title = req.body.title;
+    await db.query("UPDATE comments SET title = ? WHERE id = ?", 
+    [title, id], 
+    (err, result) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.send(result);
+        }
+    });
+})
+
 router.delete("/:commentId", async (req, res) => {
     const commentId = req.params.commentId;
     await Comments.destroy({
